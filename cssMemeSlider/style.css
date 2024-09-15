@@ -49,3 +49,40 @@ body {
     text-align: left;
 }
 
+.controls {
+    display: flex;
+    position: absolute;
+    right: 38rem;
+    bottom: 9.5rem;
+}
+
+.control {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control:hover,
+:target ~ .controls .control[href*="#slide1"]:hover {
+    background-color: #333;
+}
+
+#slide1:target ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:target ~ .slides {
+    transform: translateX(-100%);
+}
+
+#slide3:target ~ .slides {
+    transform: translateX(-200%);
+}
+
+#slide4:target ~ .slides {
+    transform: translateX(-300%);
+}
