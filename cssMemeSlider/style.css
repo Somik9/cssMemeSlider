@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #2c2d30bd;
+}
+
+.slider {
+    width: 80%;
+    max-width: 60rem;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 45rem;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide .caption {
+    width: 50%;
+    font-size: 1.8rem;
+    margin-top: 0.1rem;
+    color: #fafafa;
+    text-align: left;
+}
+
+.controls {
+    display: flex;
+    position: absolute;
+    right: 38rem;
+    bottom: 9.5rem;
+}
+
+.control {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control:hover,
+:target ~ .controls .control[href*="#slide1"]:hover {
+    background-color: #333;
+}
+
+#slide1:target ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:target ~ .slides {
+    transform: translateX(-100%);
+}
+
+#slide3:target ~ .slides {
+    transform: translateX(-200%);
+}
+
+#slide4:target ~ .slides {
+    transform: translateX(-300%);
+}
+
+@media screen and (max-width: 600px) {
+    .slide .caption {
+        font-size: 16px;
+    }
+
+    .slide .caption {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .controls {
+        display: flex;
+        position: absolute;
+        top: 505px;
+        right: 60px;
+        bottom: 25px;
+    }
+
+    .control {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .slider {
+        padding: 70px 0;
+    }
+
+    .slide {
+        height: 250px;
+    }
+
+    .slide .caption {
+        font-size: 12px;
+        position: absolute;
+        left: 0px;
+        margin-top: 40px;
+    }
+
+    .controls {
+        display: flex;
+        position: absolute;
+        top: 330px;
+        right: 135px;
+        bottom: 5px;
+    }
+
+    .control {
+        width: 8px;
+        height: 8px;
+        margin: 0 2px;
+    }
+}
